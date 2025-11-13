@@ -662,3 +662,76 @@ button.light-dark-button {
     font-size: 1.4rem !important;
   }
 }
+
+/* ======================================================================
+   Force dark-only rendering
+   ------------------------------------------------------------------
+   PreTeXt and some embedded widgets may set `data-theme="light"` or
+   add a light-mode class. Rather than editing generated HTML/JS, we
+   override any light-theme variables and key element styles here so the
+   dark appearance is always used. We also keep the theme switcher hidden.
+   ====================================================================== */
+
+/* Ensure the default root variables (dark) apply even when a light
+   theme is requested by scripts or user preference. */
+:root[data-theme="dark"],
+html[data-theme="dark"],
+:root.light-mode,
+html.light-mode {
+  /* Primary color variables used by the custom theme */
+  --color-bg: #0d1117 !important;
+  --color-surface: #161b22 !important;
+  --color-primary: #14b5ff !important;
+  --color-secondary: #f78166 !important;
+  --color-text: whitesmoke !important;
+  --color-muted: #8b949e !important;
+  --color-link: #7652f5 !important;
+  --color-link-hover: #5e17eb !important;
+  --color-math: #00f5db !important;
+  --color-warning: #ffa657 !important;
+
+  /* Common pretext/runestone variables that may be used elsewhere */
+  --background-color: #0d1117 !important;
+  --text-color: whitesmoke !important;
+}
+
+/* Also force element-level colors so widgets which don't use the
+   variables above still appear dark. */
+html[data-theme="dark"] body,
+html.light-mode body,
+:root[data-theme="dark"] body,
+:root.light-mode body {
+  background-color: var(--color-bg) !important;
+  color: var(--color-text) !important;
+}
+
+/* Force link and surface colors in case theme.css provides light-only rules */
+html[data-theme="dark"] a,
+html.light-mode a,
+:root[data-theme="dark"] a,
+:root.light-mode a {
+  color: var(--color-link) !important;
+}
+
+html[data-theme="dark"] .ptx-page > .ptx-main,
+html.light-mode .ptx-page > .ptx-main,
+:root[data-theme="dark"] .ptx-page > .ptx-main,
+:root.light-mode .ptx-page > .ptx-main {
+  background: rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Keep the light/dark switcher hidden (already present above, but reinforce) */
+#light-dark-button,
+.light-dark-button,
+button.light-dark-button {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* If any scripts add a `dark-mode` class, ensure it's the single effective
+   appearance; likewise override accidental `light-mode` rules. */
+.light-mode, :root.light-mode {
+  /* ensure variables are dark */
+  --color-bg: #0d1117 !important;
+  --color-text: whitesmoke !important;
+}

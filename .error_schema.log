@@ -1,0 +1,5 @@
+/home/lshriver/Desktop/Scriber-Labs/zettelkasten/source/main.ptx:31:0:ERROR:RELAXNGV:RELAXNG_ERR_ELEMNAME: Expecting element biography, got abstract
+/home/lshriver/Desktop/Scriber-Labs/zettelkasten/source/main.ptx:9:0:ERROR:RELAXNGV:RELAXNG_ERR_ELEMWRONG: Did not expect element subtitle there
+/home/lshriver/Desktop/Scriber-Labs/zettelkasten/source/main.ptx:7:0:ERROR:RELAXNGV:RELAXNG_ERR_CONTENTVALID: Element book failed to validate content
+/home/lshriver/Desktop/Scriber-Labs/zettelkasten/source/main.ptx:3:0:ERROR:RELAXNGV:RELAXNG_ERR_ELEMNAME: Expecting element docinfo, got pretext
+/home/lshriver/Desktop/Scriber-Labs/zettelkasten/source/main.ptx:3:0:ERROR:RELAXNGV:RELAXNG_ERR_ELEMWRONG: Did not expect element pretext there

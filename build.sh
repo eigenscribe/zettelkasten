@@ -11,6 +11,7 @@ cp assets/custom-theme.css output/web/external/
 cp assets/wisp.jpg output/web/external/
 cp assets/logo.png output/web/external/
 cp assets/favicon.png output/web/
+cp assets/force-dark.js output/web/external/
 
 # Inject CSS link and favicon into all HTML files
 echo "Injecting custom CSS and favicon into HTML files..."
@@ -19,6 +20,11 @@ for file in output/web/*.html; do
   if ! grep -q "custom-theme.css" "$file"; then
     # Insert the link tag after the existing CSS links in the <head>
     sed -i 's|</head>|<link rel="stylesheet" type="text/css" href="external/custom-theme.css">\n</head>|' "$file"
+  fi
+
+  # Inject force-dark.js so the dark mode is applied as early as possible
+  if ! grep -q "force-dark.js" "$file"; then
+    sed -i 's|</head>|<script src="external/force-dark.js"></script>\n</head>|' "$file"
   fi
   
   # Check if the file already has the favicon
