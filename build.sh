@@ -1,4 +1,5 @@
 #!/bin/bash
+source /home/lshriver/Desktop/Scriber-Labs/zettelkasten/.venv/bin/activate
 # ==========================================
 # PreTeXt Build + Custom Styling Script
 # For eigenscribe/zettelkasten
@@ -89,6 +90,7 @@ git push origin main
 # ----------------------------------------------------------
 echo -e "${GREEN}Fixing MathJax paths for GitHub Pages...${NC}"
 find docs -name "*.html" -exec sed -i 's|src="/mathjax/|src="mathjax/|g' {} +
+find output/web -type f -name "*.html" -exec sed -i 's|src="/mathjax/|src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/|g' {} +
 
 # ----------------------------------------------------------
 # 6. Wrap up
