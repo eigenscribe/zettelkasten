@@ -5,7 +5,7 @@
   <xi:include href="./docinfo.ptx" />
 
   <book xml:id="math-journal">
-    <title>Math Journal</title>
+    <title>Scribing</title>
     <subtitle>A Zettelkasten Approach</subtitle>
 
     <!-- Include frontmatter -->
